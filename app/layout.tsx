@@ -25,23 +25,26 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <BetaSignupProvider>
-            <div className="flex flex-col min-h-screen">
-              <Header />
-              <div className="flex-grow">{children}</div>
-              <Footer />
-            </div>
-          </BetaSignupProvider>
-        </ThemeProvider>
+        <AmplitudeProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <BetaSignupProvider>
+              <div className="flex flex-col min-h-screen">
+                <Header />
+                <div className="flex-grow">{children}</div>
+                <Footer />
+              </div>
+            </BetaSignupProvider>
+          </ThemeProvider>
+        </AmplitudeProvider>
       </body>
     </html>
   );
 }
 
 import "./globals.css";
+import AmplitudeProvider from "@/analytics/amplitude";
